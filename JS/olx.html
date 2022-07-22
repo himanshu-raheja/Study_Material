@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick='doSomething'>Click Me</button>
+<script>
+var name = 'olx'
+var myObject = {
+	name: 'myObject',
+	property: this.name,
+	regularFunction: function () {
+	console.log(this.name)
+	},
+	arrowFn: () => {
+	console.log(this.name)
+	},
+	iife: (function () {
+		console.log(this.name) // this will be called immediately as soon as the object is defined & it's result will be stored in iife
+	})()
+}
+
+//olx //as iife is already called
+console.log(this.name) // olx
+console.log(myObject.name) // myObject
+console.log(myObject.property) // olx 
+console.log(myObject.iife) // undefined because iife does not return anything
+const regFn = myObject.regularFunction
+regFn.call(myObject) // // function called on myObject object or this is equal to window 
+regFn.call(window) // function called on window object or this is equal to window 
+
+ const arrFn = myObject.arrowFn  
+ arrFn.call(myObject) // no effect of call, bind or apply on arrow function 
+ arrFn.call(window) // no effect of call, bind or apply on arrow function
+
+</script>                    
+</body>
+</html>      

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick='doSomething'>Click Me</button>
+<script>
+function execute(){
+	'use strict'
+    debugger
+	var a = 1;
+	var c = 5;
+
+
+	function inner() {
+		console.log(a) //1
+		//Inner makes clousre with execute so the value of a will be 1
+		// if do not use a here then it will not be there in it's closure, for example while debugging we cannot access c inside inner because it's not used there
+	}
+	function outer() {
+		var b = 2;
+		inner()
+	}
+	outer()
+}
+execute()
+</script>                    
+</body>
+</html>      

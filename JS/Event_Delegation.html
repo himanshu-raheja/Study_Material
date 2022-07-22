@@ -1,0 +1,39 @@
+<Doctype html>
+    <head>
+    </head>
+    <body>
+        <div>
+            <ul id="category">
+                <li id='laptop'>Laptop</li>
+                <li id='Camera'>Camera</li>
+                <li id='Phone'>Phone</li>
+            </ul>
+        </div>
+    <div id="form">
+    <input type="text" id="name" data-uppercase>
+    <input type="text" id="pan">
+    <input type="text" id="mobile" data-uppercase>    
+    </body>
+    <script>
+        // Instead of adding multiple events we added one event 
+        // by using event bubbling this is known as Event Delegation
+        document.querySelector('#category').addEventListener('click', (e) => {
+            console.log(e.target) //actual li element on which click happens.
+            if(e.target.tagName === 'LI') {
+                window.location.href = "/" + e.target.id
+            }
+        })
+
+
+        // Now in form example there can be multiple input box that 
+        // are performing defferent things but can share a same event handler
+        // suppose two od the boxes are to be used as upper case
+        document.querySelector('#form').addEventListener('keyup', (e) => {
+            console.log(e) //actual input element on which click happens.
+            // Using event bubbling it reaches there
+            if(e.target.dataset.uppercase !== undefined) {
+                e.target.value = e.target.value.toUpperCase();
+            }
+        })
+    </script>
+</Doctype>

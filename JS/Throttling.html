@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+<input onkeyup='doSomethingBetter()' />
+<script>
+
+function expensive () {
+	console.log('I am expensive')
+}
+
+function throttle (fn, limit) {
+	let flag = true
+	return function () {
+	
+		if(flag) {
+			let context = this
+			fn.apply(context, arguments)
+			flag = false;
+			setTimeout(() => {
+				flag = true;
+			}, limit)
+		}
+	}
+}
+
+var betterExpensiveFunc = throttle(expensive, 300)
+// function will be called first on event raise aftet that in interval of 300ms it will be called even if you resized n no times.
+
+window.addEventListener('resize', betterExpensiveFunc)
+
+</script>                    
+</body>
+</html>      

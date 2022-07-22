@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<body>
+<button onclick='doSomething'>Click Me</button>
+<script>
+	let arr = ['A', 'B']
+	debugger
+	console.log(arr.__proto__)
+	console.log(Array.prototype)
+	//arr.__proto__ is same as Array.prototype
+	console.log(arr.__proto__.__proto__) // This will lead to object's protoype
+	console.log(arr.__proto__.__proto__.__proto__) // This will lead to object's protoype.protype which is null
+	// This is how prototype chaining works
+
+	let obj = {
+		fname: 'Tim',
+		city: 'delhi',
+		info: function () {
+			console.log(this.fname) // if this.fname is not used this will throw an error reference error fname is not defined
+			console.log(this.city)
+		}
+	}
+	console.log(obj.__proto__)
+	console.log(Object.prototype)
+	//obj.__proto__ is same as Object.prototype
+	console.log(obj.__proto__.__proto__) // null
+
+	let func = function () {
+
+	}
+	console.log(func.__proto__) // function's prototype
+	console.log(func.__proto__.__proto__) // object's protype
+	console.log(func.__proto__.__proto__.__proto__) // null
+	
+	obj.info()
+	let obj2 = {
+		name: 'Him'
+	}
+	//prototypical inheritance
+	//Never do this
+	obj2.__proto__ = obj // this will update proto of obj2 to obj.
+	//Now obj 2 can access properties/methods of obj
+
+	console.log(obj.fname) // 'Him'
+	console.log(obj.city) // 'delhi'
+	console.log(obj.info()) // 'Him delhi'
+	// first obj will look into itself and then check in it's prototype if available.
+
+	// function constructor
+	function Person(name, job, yearOfBirth){
+		this.name= name;
+		this.job= job;
+		this.yearOfBirth= yearOfBirth;
+	}
+	// this will show Person's prototype property.
+	console.log(Person.prototype);
+	// O/P: 
+	// constructor 
+	// __proto__
+	
+	const p1 = new Person('John')
+	console.log(p1.__proto__)
+	// This will refer to prototype object of Person's (refer to notebook image)
+	//constructor of person
+	
+	// you can also change protoype of one constructor to another but it's not advisble
+	// function constructor
+	function Person2(name, age){
+		this.name= name;
+		this.job= age;
+	}
+	// this will show Person2's prototype property.
+	console.log(Person2.prototype);
+	// O/P: 
+	// constructor of Person2
+	// __proto__
+
+	Person2.protoype.calc = function () {
+	}
+	
+	let p2 = new Person2();
+	p2.calc() // first it find out the function in itself if not found it will go to its proto and so on
+	
+	// change protoype of Person to Person2's prototype
+	Person.protoype = Person2.protoype
+	// as the prototype changes so does the references
+	p1.calc() // is perfectly valid now
+</script>                    
+</body>
+</html>      

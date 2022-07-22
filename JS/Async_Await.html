@@ -1,0 +1,58 @@
+<DOCTYPE html>
+<head>
+</head>
+
+<body>
+    <script>
+        const getData = async () => { // will return a promise resolved with the passed value
+            console.log('Data fetched')
+            return 'Promise string'
+        }
+
+        let resolvedPromise =  getData()
+        console.log(resolvedPromise);
+        resolvedPromise.then(response => console.log(response))
+
+        const getDataAwait = async () => {
+            let result = await 'hello world'
+            console.log(result)
+        }
+        console.log(1)
+        getDataAwait()
+        console.log(2)
+
+        //Now await will wait for the string
+        // o/P: 1,
+        //      2
+        //      hello world
+
+        const conventionalPromises = () => {
+
+            const first_Promise = Promise.resolve('one')
+            const second_Promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Two')
+                }, 1000)
+            })
+
+            const third_Promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve('Three')
+                }, 2000)
+            })
+
+            const promiseAll = Promise.all([first_Promise, second_Promise, third_Promise])
+            return promiseAll
+        }
+
+        async function asyncCallMethod () {
+           let result =  await conventionalPromises()
+           console.log(result)
+        }
+
+        asyncCallMethod() 
+        
+    </script>
+
+    </body> 
+</doctype>

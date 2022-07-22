@@ -1,0 +1,26 @@
+Progress bar Uber: (concept of throttling)
+https://leetcode.com/discuss/interview-question/1064199/uber-front-end-phone-screen-reject
+
+https://leetcode.com/discuss/interview-question/271736/google-front-end-engineer-onsite-interview
+
+interwebs
+https://bigfrontend.dev/ - very very imp
+
+https://leetcode.com/discuss/general-discussion/319794/where-i-can-find-the-interview-questions-for-front-end-developerengineer -  good
+https://github.com/h5bp/Front-end-Developer-Interview-Questions
+
+Build a small application & widget from scratch using HTML, CSS & vanilla JavaScript.
+Widget is a star rating component utilizing five stars.
+Stars should be grey and change to gold when the user selects one or hovers over it.
+All stars rated lower than the selected or hovered star should also change when selected/hovered.
+Stars should be displayed horizontally.
+Star did not need to be (visually) a star... could just be an element. I made mine a circle.
+
+
+https://leetcode.com/discuss/interview-question/546992/amazon-phone-front-end-engineer-ii
+
+https://leetcode.com/discuss/interview-experience/1254448/Microsoft-or-FEE(Frontend-Engineer)-or-Bangalore - important
+
+https://leetcode.com/discuss/interview-question/742791/front-end-interview-questions - very very imp
+
+https://leetcode.com/discuss/interview-question/1074798/Frontend-Interview-Preparation-(1-4-years)-Level-1-and-Level-2 -- very very imp
