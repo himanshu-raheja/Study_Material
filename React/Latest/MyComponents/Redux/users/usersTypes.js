@@ -1,0 +1,3 @@
+export const FETCH_USERS = 'FETCH_USERS'
+export const USERES_FETCHED = 'USERS_FETCHED'
+export const ERROR_OCCURED = 'ERROR_OCCURED'
