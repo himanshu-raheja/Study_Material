@@ -4,11 +4,14 @@
 <button onclick={doSomething()}>Click Me</button>
 <script>
    function doSomething () {
-   let a = 5;
+	console.log(this)
+	'use strict'
 	console.log('after strict ->' + this)
+	function innerScope() {
+	console.log('after strict inner scope ->' + this)
+	}
 innerScope()
-}
-doSomething(); 
+}; 
 </script>                    
 </body>
 </html>      

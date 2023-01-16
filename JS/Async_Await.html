@@ -3,6 +3,7 @@
 </head>
 
 <body>
+    <div></div>>
     <script>
         const getData = async () => { // will return a promise resolved with the passed value
             console.log('Data fetched')
@@ -12,7 +13,10 @@
         let resolvedPromise =  getData()
         console.log(resolvedPromise);
         resolvedPromise.then(response => console.log(response))
+        console.log('First I am');
 
+
+        
         const getDataAwait = async () => {
             let result = await 'hello world'
             console.log(result)

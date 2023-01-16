@@ -23,7 +23,19 @@ function debounce (fn, delay) {
 	}
 }
 
-let doSomethingBetter = debounce(getData, 300)
+function debouncingNew (fn, delay) {
+	let timer;
+	return function () {
+		let context = this
+		clearTimeout(timer)
+		timer = setTimeout(() => {
+			fn.apply(context, arguments)
+		}, delay)
+	}
+}
+
+
+let doSomethingBetter = debouncingNew(getData, 300)
 </script>                    
 </body>
 </html>      

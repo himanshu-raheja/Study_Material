@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+  }
+  body {
+    background: white;
+    width: 100%;
+    padding: 10px;
+    margin: 0;
+  }
+  
+  .header {
+    display: block;
+    background-color: red;
+    padding: 10px;
+    border-radius: 3px;
+  }
+  h2 {
+    padding-bottom: 10px;
+    margin: 0;
+  }
+  .inputBoxContainer {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .checked{
+      background: #888;
+      color: #fff;
+      text-decoration: line-through;
+  }
+ul{
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+  ul li {
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+    user-select: none;
+    list-style-type: none;
+  }
+  li:nth-child(odd) {
+    background: #666;
+    color: white;
+  }
+
+  li:nth-child(even) {
+    background: #999;
+    color: white;
+  }
+  li:hover{
+    background: lightblue;
+  }
+  .checked::before {
+    content: '';
+    width: 10px;
+    transform: rotate(45deg);
+  }
+  .close{
+    display: inline-block;
+    position: relative;
+    float: right;
+  }

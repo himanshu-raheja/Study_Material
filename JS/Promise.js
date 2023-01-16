@@ -1,6 +1,6 @@
 	// Promise.all() method waits for fulfillment 
 	p1 = Promise.resolve('Hello')
-	Promise {<fulfilled>: 'Hello'}
+	// Promise {<fulfilled>: 'Hello'}
 
 	const p2 = 200;
 	
@@ -15,7 +15,8 @@
 	// O/P: 'Hello', 200, geek
 	
 	
-	//  If one of the promises fails, then all the rest of the promises fail and result will be displayed in the console in the form of an Error 
+	//  If one of the promises fails, then all the rest of the promises fail
+	// and result will be displayed in the console in the form of an Error 
 	// Promise that resolves after a given time
 	const tOut = (t) => {
 	  return new Promise((resolve, reject) => {

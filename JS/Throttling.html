@@ -23,6 +23,18 @@ function throttle (fn, limit) {
 	}
 }
 
+
+function throttleNew (fn, delay) {
+	let flag = true
+	if(flag) {
+		let context = this
+		flag = false
+		fn.apply(context, arguments)
+		setTimeout(() => {
+			flag = true
+		}, delay)
+	}
+}
 var betterExpensiveFunc = throttle(expensive, 300)
 // function will be called first on event raise aftet that in interval of 300ms it will be called even if you resized n no times.
 
