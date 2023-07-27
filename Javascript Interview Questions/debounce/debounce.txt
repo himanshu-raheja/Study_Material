@@ -1,0 +1,25 @@
+<input id='myInput' />
+
+
+//JAVASCRIPT
+
+let timerId;
+
+const input = 
+document.getElementById('myInput');
+input.addEventListener('input', onInputChange);
+
+function onInputChange (e) {
+	debounce(() => print(e.target.value), 500);
+}
+
+function debounce (func, delay) {
+		clearTimeout(timerId)
+		timerId = setTimeout(() => {
+			func();
+	}, delay)
+}
+
+function print (value) {
+	console.log(`Input value: ${value}`);
+}

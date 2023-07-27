@@ -1,0 +1,35 @@
+// HTML
+
+<button onclick='clickButton()'>Throttle guys</button>
+
+
+
+
+
+
+
+// JAVASCRIPT
+
+
+var timerId;
+let throttleCount = 0;
+let normalCount = 0;
+function clickButton() {
+	console.log('Button clicked normally ' + ++normalCount);
+	throttle(throttleButtonClick, 3000)
+}
+
+function throttle(func, delay) {
+	if(timerId){
+		return;
+	}
+
+	timerId = setTimeout(() => {
+		func();
+		timerId = undefined;
+	}, delay)
+}
+
+function throttleButtonClick() {
+		console.log('called via throttle ' + ++throttleCount)		
+}

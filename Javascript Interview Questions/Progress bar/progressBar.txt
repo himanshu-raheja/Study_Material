@@ -1,0 +1,72 @@
+// HTML
+
+<div id='progress-bar-container'>
+</div>
+
+<button onclick='throttleProgressBar ()'>
+	Add
+</button>
+
+
+
+// CSS
+
+.progressContainer{
+	width: 100%;
+	background: grey;
+	height: 40px;
+	
+}
+.progressBar {
+	width: 0%;
+	border: 1px solid black;
+	background: green;
+	height: 30px;
+}
+
+
+
+
+// JAVASCRIPT
+
+let counter = 0;
+let queue = [];
+function throttleProgressBar () {
+	if(counter < 3) {
+		addProgressBar();
+	} else {
+		queue.push(throttleProgressBar);
+	}
+}
+
+const addProgressBar = () => {
+	counter++;
+	const progressBarsContainer = 		document.getElementById('progress-bar-container');
+	const progressContainer = document.createElement('div');
+	progressContainer.classList.add('progressContainer');
+	
+	const progressBar = document.createElement('div');
+	progressBar.classList.add('progressBar');
+	progressBar.id = 'progress-' + counter;
+	
+	progressContainer.appendChild(progressBar);
+	progressBarsContainer.appendChild(progressContainer);
+	const intervalId = setInterval(move, 100);
+	let width = 0;
+	
+	function move() {
+
+		if(width >= 100) {
+			counter--;
+			clearInterval(intervalId);
+			if(queue.length > 0) {
+				const func = queue.shift()
+				func()
+			}
+		}	else {
+			width++;
+			progressBar.style.width = `${width}%`;
+		}	
+	}
+	
+}
